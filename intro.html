@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Intro</title>
+    <!-- Hubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Salju -->
+    <div class="snow"></div>
+
+    <div class="intro">
+      <h1>Welcome to My Portfolio</h1>
+      <p>Hi, I'm Davino — Web Developer & Designer</p>
+      <button class="btn-enter" onclick="enterSite()">Enter</button>
+    </div>
+
+    <script>
+      function enterSite() {
+        window.location.href = "project/index.html";
+      }
+
+      // Efek salju
+      const snowContainer = document.querySelector(".snow");
+      function createSnowflake() {
+        const snowflake = document.createElement("span");
+        snowflake.classList.add("snowflake");
+        snowflake.style.left = Math.random() * window.innerWidth + "px";
+        snowflake.style.animationDuration = 3 + Math.random() * 5 + "s";
+        snowflake.style.opacity = Math.random();
+        snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+        snowflake.innerHTML = "❄";
+        snowContainer.appendChild(snowflake);
+
+        setTimeout(() => {
+          snowflake.remove();
+        }, 8000);
+      }
+
+      setInterval(createSnowflake, 200);
+    </script>
+  </body>
+</html>
